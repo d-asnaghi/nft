@@ -6,8 +6,8 @@ import os
 
 
 def base() -> Image.Image:
-    layer = Image.open("src/layers/base.png")
-    return layer.convert('RGBA')
+    image = Image.open("attributes/base.png")
+    return image.convert('RGBA')
 
 
 def attr_name(path: Path) -> str:
@@ -15,10 +15,10 @@ def attr_name(path: Path) -> str:
 
 
 def attributes() -> dict:
-    layers = Path("src/layers")
+    path = Path("attributes")
     attributes = {}
 
-    categories = [Path(d) for d in os.scandir(layers) if d.is_dir()]
+    categories = [Path(d) for d in os.scandir(path) if d.is_dir()]
     for category in categories:
         images = category.glob('*.png')
         attributes[category.stem] = [(attr_name(img), img) for img in images]
@@ -39,11 +39,6 @@ def color_overlay(image: Image, color, mask: Image = None, alpha: float = 0.2) -
         _, _, _, a = mask.split()
         return Image.merge('RGBA', (r, g, b, a))
     return image
-
-
-def hat(n):
-    hats = [f for f in Path("src/layers/hats").glob('*')]
-    return Image.open(hats[n])
 
 
 def nft(base: Image.Image, attrs: dict):
