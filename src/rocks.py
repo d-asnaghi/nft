@@ -43,16 +43,17 @@ def color_overlay(image: Image, color, mask: Image = None, alpha: float = 0.2) -
 
 def nft(base: Image.Image, attrs: dict):
     image = base
-    metadata = {}
+    metadata = []
 
     # Add a color overlay
-    metadata["color"] = random_color().title()
-    image = color_overlay(image, metadata["color"], mask=image)
+    color = random_color()
+    metadata.append({"trait-type": "color", "value": color.title()})
+    image = color_overlay(image, color, mask=image)
 
     # Paste attributes
     for attribute, values in attrs.items():
         name, path = random.choice(values)
-        metadata[attribute] = name
+        metadata.append({"trait-type": attribute, "value": name})
         layer = Image.open(path)
         image.paste(layer, (0, 0), mask= layer)
 
