@@ -35,10 +35,9 @@ def json_config(name, description, address, png):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("dir", type=Path, help="output dir")
-    parser.add_argument("-s, --start", type=int, default=0, help="sequence start")
     args = parser.parse_args()
 
-    for n in range(args.start, 5):
+    for n in range(0, 5):
 
         config_path = args.dir / f"{n}.json"
         image_path = args.dir / f"{n}.png"
