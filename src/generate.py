@@ -7,11 +7,11 @@ import rocks
 def json_config(name, description, attributes, address, png):
     return json.dumps({
         "name": f"{name}",
-        "symbol": "",
+        "symbol": "RCK",
         "description": f"{description}",
         "image": f"{png}",
-        "seller_fee_basis_points": 0,
-        "collection": {"name": "Rocks", "family": "Rocks"},
+        "seller_fee_basis_points": 10,
+        "collection": {"name": "Rocks Collection", "family": "Rocks Family"},
         "attributes": attributes,
         "properties": {
             "files": [{"uri": f"{png}", "type": "image/png"}],
@@ -25,19 +25,28 @@ if __name__ == "__main__":
     parser.add_argument("dir", type=Path, help="output dir")
     args = parser.parse_args()
 
-    for n in range(0, 5):
+    # Cache the available traits
+    traits = rocks.traits()
+
+    for n in range(0, 10):
 
         config_path = args.dir / f"{n}.json"
         image_path = args.dir / f"{n}.png"
 
-        attributes = rocks.attributes()
-        image, metadata = rocks.rock(attributes)
+        image, attributes = rocks.rock(traits)
+
+        labels = {}
+        for entry in attributes:
+            trait, value = entry["trait-type"], entry['value']
+            labels[trait.lower()] = value.lower()
+
+        description = f"A friendly {labels['profession']} rock, made of {labels['material']}"
 
         with open(config_path, "w") as cfg:
             cfg.write(json_config(
-                name=f"Test Friendly Rock #{n}",
-                description="A Friendly Rock",
-                attributes=metadata,
+                name=f"Rock #{n}",
+                description=description,
+                attributes=attributes,
                 address="2Wbf3ZCrXzsKCRPSfbAmJ7gddEubwMqkhvBD7jeb9DmY",
                 png=image_path.stem
             ))
