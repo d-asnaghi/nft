@@ -1,2 +1,8 @@
-.env
-assets
+# Dotfiles
+*/.cache
+*/.env
+
+# Artifacts
+*/assets
+*/build
+*/node_modules
