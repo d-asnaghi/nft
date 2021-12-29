@@ -2,7 +2,10 @@
 */.cache
 */.env
 
-# Artifacts
-*/assets
+# Folders
+.env/
+assets/
+
+# Web artifacts
 */build
 */node_modules
