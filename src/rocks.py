@@ -23,24 +23,22 @@ def traits() -> dict:
 
 
 def nft(traits: dict, base_trait: str):
-    metadata = []
+    attributes = []
 
     # Create base trait
     base_name, path = random.choice(traits[base_trait])
-    metadata.append({"trait-type": base_trait,
-                    "value": base_name})
+    attributes.append({"trait-type": base_trait, "value": base_name})
     image = Image.open(path)
 
     # Add traits
     for trait, values in traits.items():
         if trait != base_trait:
             name, path = random.choice(values)
-            metadata.append(
-                {"trait-type": trait, "value": name})
+            attributes.append({"trait-type": trait, "value": name})
             layer = Image.open(path)
             image.paste(layer, (0, 0), mask=layer)
 
-    return image, metadata
+    return image, attributes
 
 
 def rock(attrs: dict):
