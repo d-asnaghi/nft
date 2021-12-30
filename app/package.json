@@ -2,6 +2,7 @@
   "name": "candy-machine-mint",
   "version": "0.1.0",
   "private": true,
+  "homepage": ".",
   "dependencies": {
     "@bundlr-network/client": "^0.2.4",
     "@civic/solana-gateway-react": "^0.4.6",
