@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Rocks Collection",
+  "name": "Mint Rocks NFTs on Solana",
   "icons": [
     {
       "src": "favicon.ico",
