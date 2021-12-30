@@ -694,6 +694,30 @@ const Home = (props: HomeProps) => {
                   </>
                 )}
 
+                {rpcUrl === "https://api.devnet.solana.com" && (
+                  <p>
+                    This is an early access DevNet version of the
+                    new year NFT minting lotter. Thanks for being
+                    a good friend and a tester. Come back later for
+                    the actual minting on MainNet
+                  </p>
+                )}
+
+                {phase === Phase.Phase4 && (
+                  <p>
+                    For new year 2022, I wanted to experiment with
+                    minting NFTs on Solana. This collection is a gift
+                    I want to give to my close friends.
+                  </p>
+                )}
+
+                {phase === Phase.Phase4 && (
+                  <p>
+                    You can mint as many NFTs as you'd like, but remeber,
+                    there is only a limited amount.
+                  </p>
+                )}
+
                 {phase === Phase.Phase4 && (
                   <>
                     {(!fairLaunch ||

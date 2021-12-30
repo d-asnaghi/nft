@@ -164,10 +164,10 @@ export const PhaseHeader = ({
 
       {phase === Phase.Phase4 && (
         <Header
-          phaseName={candyMachinePredatesFairLaunch ? 'Phase 3' : 'Phase 4'}
-          desc={'Candy Time 🍬 🍬 🍬'}
+          phaseName={"Ready to mint"}
+          desc={"NFT Rock collection"}
           date={candyMachine?.state.goLiveDate}
-          status="LIVE"
+          status=""
         />
       )}
     </>
