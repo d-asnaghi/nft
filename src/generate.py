@@ -7,10 +7,11 @@ import rocks
 def json_config(name, description, attributes, address, png):
     return json.dumps({
         "name": f"{name}",
-        "symbol": "RCK",
+        "symbol": "",
         "description": f"{description}",
         "image": f"{png}",
         "seller_fee_basis_points": 10,
+        "external_url": "https://asnaghi.me",
         "collection": {"name": "Rocks Collection", "family": "Rocks Family"},
         "attributes": attributes,
         "properties": {
@@ -23,12 +24,13 @@ def json_config(name, description, attributes, address, png):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("dir", type=Path, help="output dir")
+    parser.add_argument("--number", type=int, default=10, help="number of images")
     args = parser.parse_args()
 
     # Cache the available traits
     traits = rocks.traits()
 
-    for n in range(0, 10):
+    for n in range(0, args.number):
 
         config_path = args.dir / f"{n}.json"
         image_path = args.dir / f"{n}.png"
