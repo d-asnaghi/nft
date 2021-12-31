@@ -167,7 +167,7 @@ export const PhaseHeader = ({
           phaseName={"Ready to mint"}
           desc={"NFT Rock collection"}
           date={candyMachine?.state.goLiveDate}
-          status=""
+          status="0.01 SOL"
         />
       )}
     </>

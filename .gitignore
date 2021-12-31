@@ -1,8 +1,5 @@
 # Dotfiles
-*/.cache
-*/.env
-
-# Folders
+.cache
 .env/
 assets/
 

@@ -714,7 +714,7 @@ const Home = (props: HomeProps) => {
                 {phase === Phase.Phase4 && (
                   <p>
                     You can mint as many NFTs as you'd like, but remeber,
-                    there is only a limited amount.
+                    each costs 0.01 SOL, so be careful 😉.
                   </p>
                 )}
 
