@@ -697,7 +697,7 @@ const Home = (props: HomeProps) => {
                 {rpcUrl === "https://api.devnet.solana.com" && (
                   <p>
                     This is an early access DevNet version of the
-                    new year NFT minting lotter. Thanks for being
+                    new year NFT minting lottery. Thanks for being
                     a good friend and a tester. Come back later for
                     the actual minting on MainNet
                   </p>
